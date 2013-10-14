@@ -1,15 +1,18 @@
 class StaticPagesController < ApplicationController
+
   def home
+    @lat, @lon = cookies[:lat_lon].try(:split, "|") || "nothing set"
   end
+
 
   def about
   end
 
   def doThingWithGeoLocationVisitor
-   @lon = params[:lon]
    @lat = params[:lat]
+   @lon = params[:lon]
    
-   @info= @lat+','+@lon
+   @info= @lat+","+@lon
    
    @message= @info + "did this work?"
    

@@ -15,6 +15,8 @@ $(document).ready(function() {
     function onSuccess(position) {
 		myPosition[0] = position.coords.latitude;
         myPosition[1] = position.coords.longitude;
+        var cookie_val = position.coords.latitude + "|" + position.coords.longitude;
+        document.cookie = "lat_lon=" + escape(cookie_val);
     }
 
      function onError(err) {

@@ -6,7 +6,8 @@ RadiusApp::Application.routes.draw do
   #post '/static_pages/doThingWithGeoLocationVisitor'
   match 'static_pages/doThingWithGeoLocationVisitor', to: "static_pages#doThingWithGeoLocationVisitor", :as => :doThingWithGeoLocationVisitor
   match '/about', to: 'static_pages#about'
-  
+  match '/signup', to: 'users#new'
+   
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
