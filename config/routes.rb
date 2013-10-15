@@ -1,8 +1,9 @@
 RadiusApp::Application.routes.draw do
-
+  resources :users
+  resources :user_profiles
 
   root to: 'static_pages#home'
-  
+    
   #post '/static_pages/doThingWithGeoLocationVisitor'
   match 'static_pages/doThingWithGeoLocationVisitor', to: "static_pages#doThingWithGeoLocationVisitor", :as => :doThingWithGeoLocationVisitor
   match '/about', to: 'static_pages#about'
