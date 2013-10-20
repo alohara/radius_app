@@ -5,5 +5,5 @@ en:
   activerecord:
       attributes:
         user:
-          password_digest: "Password Yo"
+          password_digest: "Password"
   hello: "Hello world"

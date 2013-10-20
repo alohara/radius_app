@@ -20,13 +20,13 @@
 
 class UserProfile < ActiveRecord::Base
   audited
-  attr_accessible :email, :user_id, :default_zipcode, :default_radius, :gender, :security_one, :answer_one, :security_two, :answer_two
-
+  attr_accessible :user_id, :email, :default_zipcode, :default_radius, :gender, :security_one, :answer_one, :security_two, :answer_two
+  belongs_to :user
   
   before_save { self.email.downcase! }
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, format: { with: VALID_EMAIL_REGEX },
+  validates :email, presence: false, format: { with: VALID_EMAIL_REGEX },
 				    uniqueness: { case_sensitive: false }
 
 end
