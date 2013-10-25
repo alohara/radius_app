@@ -1,13 +1,17 @@
 RadiusApp::Application.routes.draw do
-  resources :users
-  resources :user_profiles
-
+  resources :users do
+    resources :user_profiles
+  end
+  resources :sessions, only: [:new, :create, :destroy]
+  
   root to: 'static_pages#home'
     
   #post '/static_pages/doThingWithGeoLocationVisitor'
   match 'static_pages/doThingWithGeoLocationVisitor', to: "static_pages#doThingWithGeoLocationVisitor", :as => :doThingWithGeoLocationVisitor
   match '/about', to: 'static_pages#about'
   match '/signup', to: 'users#new'
+  match '/signin', to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
    
   # The priority is based upon order of creation:
   # first created -> highest priority.
