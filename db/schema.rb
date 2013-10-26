@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131014181310) do
+ActiveRecord::Schema.define(:version => 20131025205207) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -66,5 +66,6 @@ ActiveRecord::Schema.define(:version => 20131014181310) do
   end
 
   add_index "users", ["radius_name"], :name => "index_users_on_radius_name", :unique => true
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
 end
