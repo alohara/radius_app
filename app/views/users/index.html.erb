@@ -1,0 +1,13 @@
+<% provide(:title, 'Radius Community') %>
+<h1>Radius Community</h1>
+<h3>Split this into two views: Admin can see all Users, and Community link is for all users to see Businesses, PSA Users, and other Anchors</h3>
+<%= will_paginate %>
+
+<ul class="users">
+  <% @users.each do |user| %>
+    <%= render user %>
+  <% end %>
+</ul>
+
+
+<%= will_paginate %>

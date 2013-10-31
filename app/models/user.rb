@@ -17,7 +17,8 @@
 
 class User < ActiveRecord::Base
   audited
-  attr_accessible :id, :radius_name, :password, :password_confirmation, :user_profile_attributes
+  attr_accessible :id, :radius_name, :password, :password_confirmation, :active,  
+                  :user_profile_attributes
   has_secure_password
   has_one :user_profile, foreign_key: "user_id", dependent: :destroy
   accepts_nested_attributes_for :user_profile, reject_if: :check_email_presence
