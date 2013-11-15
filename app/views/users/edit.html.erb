@@ -16,7 +16,7 @@
       <div class="form-group has-error">
       <div class="form-inline" role="form">
          <%= f.label :radius_name %>
-         <%= f.text_field :radius_name, disabled: true %>
+         <%= f.text_field :radius_name, disabled: true, class:"input-medium" %>
 	  </div>
 		<%= f.fields_for :user_profile do |ff| %>
 	  <p></p>
@@ -38,8 +38,8 @@
 	  <i><h5>Enter your Password to update your profile (you can also change your Password).</h5></i>
       <div class="form-inline">
         <%= f.label :password %>
-        <%= f.password_field :password, placeholder: "Password" %>
-        <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
+        <%= f.password_field :password, placeholder: "Password", class:"input-medium" %>
+        <%= f.password_field :password_confirmation, placeholder: "Confirm Password", class:"input-medium" %>
 	  </div>
   	  <p></p>
         <%= f.submit "Update", class: "btn btn-medium btn-primary" %> <b>Or</b>

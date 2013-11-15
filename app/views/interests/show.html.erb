@@ -1,0 +1,48 @@
+<% provide(:title, 'Interests') %>
+<div class="row">
+  <aside class="span4">
+    <section>
+	  <%= form_for(@interest) do |f| %>
+	  <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :category %>
+	  <%= f.text_field :category %>
+	  
+	  <%= f.label :cat_descr %>
+	  <%= f.text_field :category_desc %>
+	  
+      <label class="checkbox"> <input type="checkbox"> 
+	    <%= f.check_box :active, checked: true %>
+	    <%= f.label :active %>
+	    <%= f.check_box :reserved %>
+	    <%= f.label :reserved %>
+	  </label>
+ 	  
+	  <%= f.submit "Add Interest", class: "btn btn-medium btn-primary" %>
+	<% end %>
+	</section>
+  </aside>
+  <div class="span8">
+    <div class="col-xs-12 col-sm-6 col-md-8">
+	  <p></p>
+	  
+      <span>
+  	    <%= form_tag interests_path,:method => 'get' do  %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search", :name => nil %>
+        <% end %>
+	  </span>
+    <% if @interests.any? %>
+        <h3> Interests (<%= @interests.count %>)</h3>
+          <% @interests.each do |interest| %>
+          <li>
+            <%= interest.category %>
+            <%= interest.category_desc %>
+            <%= check_box_tag :active, 1, interest.active ? true : false %>
+            <%= link_to "delete", interest, method: :delete, confirm: "You sure homey?" %>
+	      </li>
+          <% end %>
+    <% end %>
+	</div>
+  </div>
+</div>

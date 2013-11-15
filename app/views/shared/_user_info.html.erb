@@ -1,0 +1,10 @@
+<h1>
+  <%= current_user.radius_name %>
+</h1>
+<span>
+  <%= link_to "My Radius", user_path(current_user) %>
+</span>
+<span>
+  <p></p>
+  <%= pluralize(current_user.radiusposts.count, "post") %>
+</span>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131025205207) do
+ActiveRecord::Schema.define(:version => 20131115155713) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -33,6 +33,35 @@ ActiveRecord::Schema.define(:version => 20131025205207) do
   add_index "audits", ["auditable_id", "auditable_type"], :name => "auditable_index"
   add_index "audits", ["created_at"], :name => "index_audits_on_created_at"
   add_index "audits", ["user_id", "user_type"], :name => "user_index"
+
+  create_table "interests", :force => true do |t|
+    t.string   "category"
+    t.string   "category_desc"
+    t.boolean  "active"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+    t.boolean  "reserved",      :default => false
+  end
+
+  create_table "radiusposts", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "content"
+    t.integer  "interest_id"
+    t.string   "interest"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.float    "ip_address"
+    t.string   "zipcode"
+    t.boolean  "visible"
+    t.integer  "group_id"
+    t.string   "group_name"
+    t.datetime "eff_timestamp"
+    t.datetime "expires_in"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "radiusposts", ["user_id", "created_at"], :name => "index_radiusposts_on_user_id_and_created_at"
 
   create_table "user_profiles", :force => true do |t|
     t.integer  "user_id"

@@ -1,0 +1,20 @@
+<li>
+  <%= radiuspost.interest %>
+  <span class="content">
+    <%= wrap(radiuspost.content) %>
+  </span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(radiuspost.created_at) %> ago.
+	<%= radiuspost.zipcode %>
+	<%= radiuspost.latitude %>
+	<%= radiuspost.longitude %>
+    <% if current_user?(radiuspost.user) %>
+      <div class="checkbox"> <input type="checkbox"><b>HardCode Visible</b>
+	    <%= check_box_tag :visible, 1, radiuspost.visible ? true : false, disabled: true %>
+        <%= link_to "delete", radiuspost, method: :delete,
+		   						   confirm: "You sure, Yo?",
+								   title: radiuspost.content %>
+	  </div>
+  </span>
+  <% end %>
+</li>

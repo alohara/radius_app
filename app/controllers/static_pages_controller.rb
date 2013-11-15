@@ -2,8 +2,12 @@ class StaticPagesController < ApplicationController
 
   def home
     @lat, @lon = cookies[:lat_lon].try(:split, "|") || "nothing set"
+	 if signed_in?
+	  @radiuspost = current_user.radiusposts.build
+	  @feed_items = current_user.feed.paginate(page: params[:page])
+	end
   end
-  
+    
   def about
   end
   

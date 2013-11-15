@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
                   :user_profile_attributes
   has_secure_password
   has_one :user_profile, foreign_key: "user_id", dependent: :destroy
+  has_many :radiusposts, dependent: :destroy
   accepts_nested_attributes_for :user_profile, reject_if: :check_email_presence
   
   before_save { self.radius_name.downcase! }
@@ -33,6 +34,11 @@ class User < ActiveRecord::Base
             uniqueness: {case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
+
+  def feed
+    Radiuspost.where("user_id = ? and visible = ?", id, true)
+#    Radiuspost.from_users_followed_by(self)
+  end
   
   private
     def create_remember_token
