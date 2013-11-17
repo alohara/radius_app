@@ -1,12 +1,31 @@
 class RadiuspostsController < ApplicationController
   before_filter :signed_in_user, only: [:create, :destroy]
   before_filter :correct_user, only: :destroy
+  require 'open-uri'
+  require 'json'
   
 
   def create
     @radiuspost = current_user.radiusposts.build(params[:radiuspost])
     @radiuspost.interest = Interest.find_by_id(@radiuspost.interest_id).category
 #	@radiuspost.content_ip = request.remote_ip
+    @latitude, @longitude = cookies[:lat_lon].try(:split, "|")
+	@radiuspost.latitude = @latitude
+	@radiuspost.longitude = @longitude
+	@goog_api = "http://maps.googleapis.com/maps/api/geocode/json?latlng="
+    @latlon = @latitude + "," + @longitude
+	@goog_sensor = "&sensor=false"
+    @final_file = @goog_api + @latlon + @goog_sensor
+	@result = JSON.parse(open(@final_file).read)
+    @radiuspost.zipcode = "00001"
+	@result["results"].each do |type|
+      type["address_components"].each do |name|
+	    if name["types"] == [ "postal_code" ]
+          @radiuspost.zipcode = name["short_name"]
+		end
+	  end
+	end
+
 	if @radiuspost.save
 	  flash[:success] = "Radiuspost created, yo!"
 	  redirect_to root_path

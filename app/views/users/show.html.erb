@@ -14,6 +14,9 @@
   <div class="span8">
     <div class="col-xs-12 col-sm-6 col-md-8">
 	<h4>This is the User/Show view </h4>
+	  <%= @latlon %>
+	  <%= @final_file %>
+  	  <%= @result %>
       <% if @user.radiusposts.any? %>
 	    <h3>Posts (<%= @user.radiusposts.count %>)</h3>
 		<ol class="radiusposts">
