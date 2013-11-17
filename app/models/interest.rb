@@ -14,7 +14,7 @@
 class Interest < ActiveRecord::Base
   audited
   attr_accessible :active, :category, :category_desc, :reserved
-  has_many :microposts
+  has_many :radiusposts
   validates :category, presence: true
   validates :category_desc, presence: true
 

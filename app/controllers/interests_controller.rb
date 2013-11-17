@@ -1,6 +1,6 @@
 class InterestsController < ApplicationController
 before_filter :signed_in_user
-before_filter :admin_user, only: [:create, :destroy, :filter]
+#before_filter :admin_user, only: [:create, :destroy, :filter]
 
   def new
   end
