@@ -39,10 +39,14 @@ class Radiuspost < ActiveRecord::Base
 
   def self.search(search, lat, lon)
     if search.nil?
-     Radiuspost.within(5, :origin => [lat, lon])
+     Radiuspost.within(1, :origin => [lat, lon])
 #    find(:all)     
     else
-     find(:all, :conditions => ['zipcode LIKE ?', "%#{search}%"])
+	  if search = ""
+        Radiuspost.within(1, :origin => [lat, lon])
+	  else
+        find(:all, :conditions => ['zipcode LIKE ?', "%#{search}%"])
+	  end
     end
   end
   
