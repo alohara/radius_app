@@ -4,10 +4,14 @@ class RadiuspostsController < ApplicationController
   require 'open-uri'
   require 'json'
   
+  def show
+#    @radiusposts = Radiuspost.search(params[:search])
+  end
 
   def create
     @radiuspost = current_user.radiusposts.build(params[:radiuspost])
     @radiuspost.interest = Interest.find_by_id(@radiuspost.interest_id).category
+	@radiuspost.radius_name = current_user.radius_name
 #	@radiuspost.content_ip = request.remote_ip
     @latitude, @longitude = cookies[:lat_lon].try(:split, "|")
 	@radiuspost.latitude = @latitude
@@ -22,6 +26,12 @@ class RadiuspostsController < ApplicationController
       type["address_components"].each do |name|
 	    if name["types"] == [ "postal_code" ]
           @radiuspost.zipcode = name["short_name"]
+		end
+	    if name["types"] == [ "administrative_area_level_2", "political" ]
+          @radiuspost.city = name["short_name"]
+		end
+		if name["types"] == [ "locality", "political" ]
+          @radiuspost.subcity = name["short_name"]
 		end
 	  end
 	end
@@ -39,7 +49,7 @@ class RadiuspostsController < ApplicationController
     @radiuspost.destroy
 	redirect_back_or root_path
   end
- 
+   
   private
   
     def correct_user

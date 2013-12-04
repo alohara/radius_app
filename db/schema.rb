@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131115155713) do
+ActiveRecord::Schema.define(:version => 20131123002721) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -33,6 +33,21 @@ ActiveRecord::Schema.define(:version => 20131115155713) do
   add_index "audits", ["auditable_id", "auditable_type"], :name => "auditable_index"
   add_index "audits", ["created_at"], :name => "index_audits_on_created_at"
   add_index "audits", ["user_id", "user_type"], :name => "user_index"
+
+  create_table "groups", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "radius_name"
+    t.integer  "group_id"
+    t.string   "group_name"
+    t.string   "group_desc"
+    t.boolean  "active",      :default => false
+    t.boolean  "admin",       :default => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
+
+  add_index "groups", ["group_id"], :name => "index_groups_on_group_id"
+  add_index "groups", ["group_name"], :name => "index_groups_on_group_name"
 
   create_table "interests", :force => true do |t|
     t.string   "category"
@@ -59,9 +74,15 @@ ActiveRecord::Schema.define(:version => 20131115155713) do
     t.datetime "expires_in"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.string   "radius_name"
+    t.string   "city"
+    t.string   "subcity"
   end
 
+  add_index "radiusposts", ["city"], :name => "index_radiusposts_on_city"
+  add_index "radiusposts", ["latitude", "longitude"], :name => "index_radiusposts_on_latitude_and_longitude"
   add_index "radiusposts", ["user_id", "created_at"], :name => "index_radiusposts_on_user_id_and_created_at"
+  add_index "radiusposts", ["zipcode"], :name => "index_radiusposts_on_zipcode"
 
   create_table "user_profiles", :force => true do |t|
     t.integer  "user_id"

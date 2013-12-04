@@ -17,8 +17,7 @@
 
 class User < ActiveRecord::Base
   audited
-  attr_accessible :id, :radius_name, :password, :password_confirmation, :active,  
-                  :user_profile_attributes
+  attr_accessible :first_name, :last_name, :radius_name, :password, :password_confirmation, :active, :user_profile_attributes
   has_secure_password
   has_one :user_profile, foreign_key: "user_id", dependent: :destroy
   has_many :radiusposts, dependent: :destroy
@@ -28,17 +27,17 @@ class User < ActiveRecord::Base
   before_save :create_remember_token
 
   
-  #validates :first_name, presence: true, length: { maximum: 25 }
-  #validates :last_name, presence: true, length: { maximum: 25 }
+  validates :first_name, presence: true, length: { maximum: 25 }
+  validates :last_name, presence: true, length: { maximum: 25 }
   validates :radius_name, presence: true, length: { maximum: 25 },
             uniqueness: {case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
-  def feed
-    Radiuspost.where("user_id = ? and visible = ?", id, true)
-#    Radiuspost.from_users_followed_by(self)
-  end
+#  def feed
+#    Radiuspost.where("user_id = ? and visible = ?", id, true)
+##    Radiuspost.from_users_followed_by(self)
+#  end
   
   private
     def create_remember_token

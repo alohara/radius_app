@@ -1,0 +1,5 @@
+  	  <%= form_tag radiusposts_path,:method => 'get' do  %>
+        <%= text_field_tag :search, params[:search], class:"input-medium" %>
+        <%= submit_tag "Zip Code", :name => nil, class: "btn btn-medium btn-primary" %>
+     <% end %>
+

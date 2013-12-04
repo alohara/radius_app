@@ -3,8 +3,9 @@ RadiusApp::Application.routes.draw do
     resources :user_profiles
   end
   resources :sessions, only: [:new, :create, :destroy]
-  resources :radiusposts, only: [:create, :destroy]
+  resources :radiusposts, only: [:create, :destroy, :show]
   resources :interests, only: [:create, :destroy, :show]
+  resources :groups, only: [:create, :destroy, :show]
   
   root to: 'static_pages#home'
     
@@ -15,6 +16,8 @@ RadiusApp::Application.routes.draw do
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
   match '/interests', to: 'interests#show'
+  match '/groups', to: 'groups#show'
+  match '/radiusposts', to: 'static_pages#home'
    
   # The priority is based upon order of creation:
   # first created -> highest priority.

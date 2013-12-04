@@ -18,6 +18,9 @@
 #  expires_in    :datetime
 #  created_at    :datetime        not null
 #  updated_at    :datetime        not null
+#  radius_name   :string(255)
+#  city          :string(255)
+#  subcity       :string(255)
 #
 
 require 'spec_helper'

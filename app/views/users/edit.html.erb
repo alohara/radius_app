@@ -15,8 +15,12 @@
     <form role="form">
       <div class="form-group has-error">
       <div class="form-inline" role="form">
-         <%= f.label :radius_name %>
-         <%= f.text_field :radius_name, disabled: true, class:"input-medium" %>
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
+		<%= f.label :last_name %>
+        <%= f.text_field :last_name %>
+        <%= f.label :radius_name %>
+        <%= f.text_field :radius_name, disabled: true, class:"input-medium" %>
 	  </div>
 		<%= f.fields_for :user_profile do |ff| %>
 	  <p></p>
