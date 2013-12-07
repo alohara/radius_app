@@ -24,13 +24,12 @@ class RadiuspostsController < ApplicationController
     @radiuspost.zipcode = "00001"
 	@result["results"].each do |type|
       type["address_components"].each do |name|
-	    if name["types"] == [ "postal_code" ]
+	    case name["types"]
+	      when [ "postal_code" ]
           @radiuspost.zipcode = name["short_name"]
-		end
-	    if name["types"] == [ "administrative_area_level_2", "political" ]
+		  when [ "administrative_area_level_2", "political" ]
           @radiuspost.city = name["short_name"]
-		end
-		if name["types"] == [ "locality", "political" ]
+		  when [ "locality", "political" ]
           @radiuspost.subcity = name["short_name"]
 		end
 	  end

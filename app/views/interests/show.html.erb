@@ -39,6 +39,7 @@
             <%= interest.category %>
             <%= interest.category_desc %>
             <%= check_box_tag :active, 1, interest.active ? true : false %>
+            <%= link_to "edit", edit_interest_path(interest.id) %>
             <%= link_to "delete", interest, method: :delete, confirm: "You sure homey?" %>
 	      </li>
           <% end %>

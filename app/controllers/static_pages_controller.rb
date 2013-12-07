@@ -5,11 +5,11 @@ class StaticPagesController < ApplicationController
     @lat, @lon = cookies[:lat_lon].try(:split, "|") || "nothing set"
 	if signed_in?
 	  @radiuspost = current_user.radiusposts.build
-#	  @feed_items = current_user.feed.paginate(page: params[:page])
 	end
 #    @radiusposts = Radiuspost.all
     @latitude, @longitude = cookies[:lat_lon].try(:split, "|")
-    @radiusposts = Radiuspost.search(params[:search],@latitude,@longitude)
+ #   @radiusposts = Radiuspost.search(params[:search],@latitude,@longitude)
+     @feed_items = Radiuspost.search(params[:search],@latitude,@longitude)
   end
     
   def about

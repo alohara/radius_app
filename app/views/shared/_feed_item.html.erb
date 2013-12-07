@@ -1,12 +1,17 @@
 <li id="<%= feed_item.id %>">
   <span class="user">
-    <%= link_to feed_item.user.radius_name, feed_item.user %>
-	<%= feed_item.interest %>
-	<%= feed_item.zipcode %>
+    <%= feed_item.interest %>
+    <%= feed_item.subcity %>
+    <%= feed_item.zipcode %>
   </span>
-  <span class="content"><%= wrap(feed_item.content) %></span>
+  <span class="content">
+    <%= wrap(feed_item.content) %>
+  </span>
   <span class="timestamp">
+    <%= link_to feed_item.user.radius_name, feed_item.user %>
     Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
+	<%= feed_item.latitude %>
+	<%= feed_item.longitude %>
   </span>
   <% if current_user?(feed_item.user) %>
   <%= link_to "delete", feed_item, method: :delete,

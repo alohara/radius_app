@@ -1,6 +1,6 @@
 class InterestsController < ApplicationController
 before_filter :signed_in_user
-before_filter :admin_user, only: [:create, :destroy, :filter]
+before_filter :admin_user, only: [:create, :destroy, :filter, :edit, :update]
 
   def new
   end
@@ -19,7 +19,21 @@ before_filter :admin_user, only: [:create, :destroy, :filter]
 	  render 'new'
 	end
   end
-  
+
+  def edit
+    @interest = Interest.find(params[:id])
+  end
+
+  def update
+    @interest = Interest.find(params[:id])
+	if @interest.update_attributes(params[:interest])
+	  flash[:success] = "You've updated this zip!"
+	  redirect_to @interest
+	else
+	  render 'edit'
+	end
+  end
+
   def index
     @interests = Interest.paginate(page: params[:page])
   end

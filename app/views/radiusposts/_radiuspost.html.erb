@@ -1,12 +1,12 @@
 <li>
   <%= radiuspost.interest %>
-  <%= radiuspost.radius_name %>
   <%= radiuspost.subcity %>
   <%= radiuspost.zipcode %>
   <span class="content">
     <%= wrap(radiuspost.content) %>
   </span>
   <span class="timestamp">
+    <%= radiuspost.radius_name %>
     Posted <%= time_ago_in_words(radiuspost.created_at) %> ago.
 	<%= radiuspost.latitude %>
 	<%= radiuspost.longitude %>

@@ -33,20 +33,16 @@ class Radiuspost < ActiveRecord::Base
   belongs_to :user
   validates :content, presence: true, length: { maximum: 150 }
   validates :user_id, presence: true
-  
   default_scope order: 'radiusposts.created_at DESC'
-  
+  scope :visible, -> { where("visible = ?", true) }
 
   def self.search(search, lat, lon)
-    if search.nil?
-     Radiuspost.within(1, :origin => [lat, lon])
+    case search
+	  when "My Radius"
+     Radiuspost.visible.within(3, :origin => [lat, lon])
 #    find(:all)     
     else
-	  if search = ""
-        Radiuspost.within(1, :origin => [lat, lon])
-	  else
-        find(:all, :conditions => ['zipcode LIKE ?', "%#{search}%"])
-	  end
+     find(:all, :conditions => ['visible = ? and zipcode LIKE ?', true, "%#{search}%"])
     end
   end
   
