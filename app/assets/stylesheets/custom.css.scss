@@ -8,6 +8,26 @@ body {
   background-color: #ffffff;
   padding-top: 70px;
 }
+.sidebar-nav-fixed {
+    float: left;
+    padding: 9px 0;
+    position:fixed;
+    left:20px;
+    top:60px;
+    width:270px;
+	height: 100%;
+}
+
+#sidebar:hover{
+    overflow-y:scroll;
+    overflow-x:scroll;
+}
+.row-fluid > .span-fixed-sidebar {
+    margin-left: 290px;
+    list-style: none;
+    margin: 10px 0 0 0;
+	
+}
 
  /* header */
 
@@ -50,9 +70,10 @@ body {
 
 aside {
   textarea {
-    height: 100px;
-    margin-bottom: 5px;
+    height: 80px;
+    margin-bottom: 10px;
   }
+  display: inline-block;
 }
 .btn {
    background-color: #2c3e50;
