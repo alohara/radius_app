@@ -13,6 +13,9 @@
 #  active          :boolean         default(TRUE)
 #  created_at      :datetime        not null
 #  updated_at      :datetime        not null
+#  twitter_acct    :boolean
+#  twitter_id      :integer
+#  tweet_since_id  :integer(8)
 #
 
 require 'spec_helper'

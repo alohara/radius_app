@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131205053211) do
+ActiveRecord::Schema.define(:version => 20131213172228) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -108,11 +108,14 @@ ActiveRecord::Schema.define(:version => 20131205053211) do
     t.string   "radius_name"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin",           :default => false
-    t.boolean  "business",        :default => false
-    t.boolean  "active",          :default => true
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.boolean  "admin",                        :default => false
+    t.boolean  "business",                     :default => false
+    t.boolean  "active",                       :default => true
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
+    t.boolean  "twitter_acct"
+    t.integer  "twitter_id"
+    t.integer  "tweet_since_id",  :limit => 8
   end
 
   add_index "users", ["radius_name"], :name => "index_users_on_radius_name", :unique => true

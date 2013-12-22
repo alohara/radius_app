@@ -1,13 +1,37 @@
 <% provide(:title, 'Radius Community') %>
-<h1>Radius Community</h1>
-<h3>Split this into two views: Admin can see all Users, and Community link is for all users to see Businesses, PSA Users, and other Anchors</h3>
-<%= will_paginate %>
+<div class="container-fluid">
+  <div class="row-fluid row">
+    <div class="span3">
+      <div class="well sidebar-nav-fixed">
+        <ul class="nav nav-list">
+          <li class="nav-header"></li>
+          <%= will_paginate %>
+          <ul class="users">
+            <% @users.each do |user| %>
+            <%= render user %>
+            <% end %>
+          </ul>
+     <%= will_paginate %>
+	   </div>
+    </div>
+    <div class="span9 span-fixed-sidebar">
+      <h3>Radius Community</h3>
+      <div class="hero-unit">
+      <div class="row-fluid">
+        <div class="span9">
+		    <% @tweeters.each do |element| %>
+            <%= element.tweet_since_id  %>
+			<% end %>
 
-<ul class="users">
-  <% @users.each do |user| %>
-    <%= render user %>
-  <% end %>
-</ul>
-
-
-<%= will_paginate %>
+ 		 <%= @count_in %>
+  		 <%= @count %>
+		 <% @content.each do |post| %>
+            <%= post.id  %>
+			<%= post.text  %>
+			<% end %>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

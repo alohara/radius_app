@@ -11,6 +11,7 @@ gem 'geocoder'
 gem 'audited-activerecord', '~> 3.0'
 gem 'rails_12factor'
 gem 'geokit-rails'
+gem 'twitter'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

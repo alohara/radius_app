@@ -20,7 +20,7 @@
 
 class UserProfile < ActiveRecord::Base
   audited
-  attr_accessible :email, :default_zipcode, :default_radius, :gender, :security_one, :answer_one, :security_two, :answer_two
+  attr_accessible :email, :default_zipcode, :default_radius, :gender, :latitude, :longitude,:security_one, :answer_one, :security_two, :answer_two
   belongs_to :user
   
   before_save { self.email.downcase! }

@@ -19,6 +19,7 @@
         <%= f.text_field :first_name %>
 		<%= f.label :last_name %>
         <%= f.text_field :last_name %>
+		<p></p>
         <%= f.label :radius_name %>
         <%= f.text_field :radius_name, disabled: true, class:"input-medium" %>
 	  </div>
@@ -33,12 +34,30 @@
           <%= ff.text_field :security_one %>
   	      <%= ff.label :answer_one %>
           <%= ff.text_field :answer_one %>
-		  <% end %>
       </div>
       <label class="checkbox"> <input type="checkbox">
             <%= f.check_box :active %>
 	        <%= f.label :active %>
 	  </label>
+ 	  <% if current_user.admin? %>
+        <label class="checkbox"> <input type="checkbox">
+		  <%= f.check_box :twitter_acct %>
+	      <%= f.label :twitter_acct %>
+	    </label>
+        <div class="form-inline">
+          <%= ff.label :default_zipcode %>
+          <%= ff.text_field :default_zipcode %>
+		  <%= f.label :twitter_id %>
+          <%= f.number_field :twitter_id %>
+		  <%= f.label :tweet_since_id %>
+          <%= f.number_field :tweet_since_id %>
+		  <%= ff.label :latitude %>
+          <%= ff.text_field :latitude %>
+  		  <%= ff.label :longitude %>
+          <%= ff.text_field :longitude %>
+		</div>
+		  <% end %>
+ 	  <% end %>
 	  <i><h5>Enter your Password to update your profile (you can also change your Password).</h5></i>
       <div class="form-inline">
         <%= f.label :password %>
