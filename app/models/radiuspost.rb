@@ -38,11 +38,11 @@ class Radiuspost < ActiveRecord::Base
 
   def self.search(search, lat, lon)
     case search
-	  when "My Radius"
-       Radiuspost.visible.within(3, :origin => [lat, lon])
+	 when "My Radius"
+        Radiuspost.visible.within(3, :origin => [lat, lon])
 #    find(:all)     
     else
-     find(:all, :conditions => ['visible = ? and zipcode LIKE ?', true, "%#{search}%"])
+      find(:all, :conditions => ['visible = ? and zipcode LIKE ?', true, "%#{search}%"])
     end
   end
   

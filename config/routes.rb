@@ -1,5 +1,8 @@
 RadiusApp::Application.routes.draw do
   resources :users do
+	member do
+      get 'update_tweets'
+	end
     resources :user_profiles
   end
   resources :sessions, only: [:new, :create, :destroy]
@@ -20,6 +23,7 @@ RadiusApp::Application.routes.draw do
   match '/zipcodes', to: 'zipcodes#show'
   match '/groups', to: 'groups#show'
   match '/radiusposts', to: 'static_pages#home'
+  match 'update_tweets', to: 'users#update_tweets'
    
   # The priority is based upon order of creation:
   # first created -> highest priority.

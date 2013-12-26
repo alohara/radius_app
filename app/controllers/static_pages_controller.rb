@@ -9,7 +9,7 @@ class StaticPagesController < ApplicationController
 #    @radiusposts = Radiuspost.all
     @latitude, @longitude = cookies[:lat_lon].try(:split, "|")
  #   @radiusposts = Radiuspost.search(params[:search],@latitude,@longitude)
-     @feed_items = Radiuspost.search(params[:search],@latitude,@longitude)
+     @feed_items = Radiuspost.paginate(page: params[:page]).search(params[:search],@latitude,@longitude)
   end
     
   def about

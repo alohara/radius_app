@@ -17,10 +17,13 @@ class UsersController < ApplicationController
     @user = User.new
 	@user_profile = @user.build_user_profile
   end
-
   def index
+   @users = User.paginate(page: params[:page])
+  end
+  
+  def update_tweets
 #    @users = User.all
-    @users = User.paginate(page: params[:page])
+#    @users = User.paginate(page: params[:page])
 	@tweeters = User.tweeters.all
 	unless @tweeters.nil?
     client = Twitter::REST::Client.new do |config|
@@ -58,6 +61,7 @@ class UsersController < ApplicationController
 	  end
 	end
 	end
+   redirect_to(root_path)
   end
 
   def edit

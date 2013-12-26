@@ -5,6 +5,9 @@
       <div class="well sidebar-nav-fixed">
         <ul class="nav nav-list">
           <li class="nav-header"></li>
+          <% if current_user.admin? %>
+            <li><%= link_to "Update Tweets", :controller => "users", :action => "update_tweets" %></li>
+		  <% end %>
           <%= will_paginate %>
           <ul class="users">
             <% @users.each do |user| %>
