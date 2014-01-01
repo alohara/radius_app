@@ -14,7 +14,13 @@ class StaticPagesController < ApplicationController
     
   def about
   end
-
+  
+  def adminstats
+    @zips = Radiuspost.unscoped.uniq.pluck(:zipcode)
+#    @postcount = Radiuspost.unscoped.count(:group => "zipcode")
+#	@people = Radiuspost.unscoped.count(:group => "radius_name")
+	@people = User.unscoped.uniq.pluck(:radius_name)
+  end
 
   def doThingWithGeoLocationVisitor
    @lat = params[:lat]

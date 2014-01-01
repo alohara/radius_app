@@ -35,7 +35,7 @@ class Radiuspost < ActiveRecord::Base
   validates :user_id, presence: true
   default_scope order: 'radiusposts.created_at DESC'
   scope :visible, -> { where("visible = ?", true) }
-
+  
   def self.search(search, lat, lon)
     case search
 	 when "My Radius"

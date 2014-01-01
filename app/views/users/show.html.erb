@@ -22,10 +22,11 @@
         <div class="span9">
           <% if @user.radiusposts.any? %>
      	    <h3>Posts (<%= @user.radiusposts.count %>)</h3>
+		  <%= will_paginate(@radiusposts) %>
 	       	<ol class="radiusposts">
 		      <%= render @radiusposts %>
 		    </ol>
-		  <%= will_paginate @radiusposts %>
+		  <%= will_paginate(@radiusposts) %>
 	    <% end %>
         </div>
       </div>

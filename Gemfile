@@ -12,6 +12,7 @@ gem 'audited-activerecord', '~> 3.0'
 gem 'rails_12factor'
 gem 'geokit-rails'
 gem 'twitter'
+gem 'rails_autolink', '~> 1.1.5'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

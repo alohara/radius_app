@@ -3,7 +3,7 @@
   <%= radiuspost.subcity %>
   <%= radiuspost.zipcode %>
   <span class="content">
-    <%= wrap(radiuspost.content) %>
+    <%= auto_link(wrap(radiuspost.content),:html => { :target => '_blank' }) %>
   </span>
   <span class="timestamp">
     <%= radiuspost.radius_name %>

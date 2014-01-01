@@ -24,6 +24,7 @@ RadiusApp::Application.routes.draw do
   match '/groups', to: 'groups#show'
   match '/radiusposts', to: 'static_pages#home'
   match 'update_tweets', to: 'users#update_tweets'
+  match '/admin', to: 'static_pages#adminstats'
    
   # The priority is based upon order of creation:
   # first created -> highest priority.
