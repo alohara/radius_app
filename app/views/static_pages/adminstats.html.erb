@@ -20,12 +20,16 @@
 		<tr>
 		  <td>
 		    <% @zips.each do |zip| %>
+			  <% @zipcity = Zipcode.select(:subcity).where("zipcode = ?", zip) %>
               <% @people.each do |peeps| %>
 		    <ul>
 			  <% @stats = Radiuspost.where("zipcode = ? and radius_name = ?", zip, peeps).count %>
 			  <% if @stats > 0 %>
                 <b><%= zip %></b>
-  			    <b><%= peeps %></b>
+			    <% @zipcity.each do |city| %>
+                  <b><%= city.subcity %></b>
+				<% end %>
+  			    <i><%= peeps %></i>
 			    <%= @stats %>
 			<% end %>
 			</ul>
