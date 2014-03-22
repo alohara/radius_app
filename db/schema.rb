@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131213172228) do
+ActiveRecord::Schema.define(:version => 20140316005727) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -67,13 +67,13 @@ ActiveRecord::Schema.define(:version => 20131213172228) do
     t.float    "longitude"
     t.float    "ip_address"
     t.string   "zipcode"
-    t.boolean  "visible"
+    t.boolean  "visible",       :default => true
     t.integer  "group_id"
     t.string   "group_name"
     t.datetime "eff_timestamp"
     t.datetime "expires_in"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.string   "radius_name"
     t.string   "city"
     t.string   "subcity"

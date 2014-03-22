@@ -3,10 +3,12 @@
   <div class="field">
     <%= f.text_area :content, placeholder: "Tell us..." %>
 	<%= f.collection_select :interest_id, Interest.is_reserved(current_user), :id, :category, include_blank: true %>
+    <% if current_user.admin? %>
 	  <label class="checkbox"> <input type="checkbox">
         <%= f.check_box :visible, checked: true%>
 	    <%= f.label :visible %>
 	  </label>
+	<% end %>
 	<%= f.submit "Post", class: "btn btn-medium btn-primary" %>
   </div>
   

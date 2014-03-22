@@ -1,4 +1,10 @@
 RadiusApp::Application.routes.draw do
+  get "teams/new"
+
+  get "teams/index"
+
+  get "teams/edit"
+
   resources :users do
 	member do
       get 'update_tweets'
