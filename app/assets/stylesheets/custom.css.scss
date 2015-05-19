@@ -163,7 +163,7 @@ aside {
   @extend .control-group;
   @extend .error;
 }
-(max-width: 979px){
+@media (max-width: 979px){
 .dropdown-menu{display:none !important;}
 .open>.dropdown-menu {display: block;}
 #custom-search-input{margin:0;}
