@@ -60,7 +60,19 @@ body {
 .navbar .nav>li>.dropdown-menu:before{display:none !important;}
 .navbar .nav>li>.dropdown-menu:after{display:none !important;}
 /* radiusposts */
-
+.caret {
+display: inline-block;
+width: 0;
+height: 0;
+vertical-align: top;
+border-top: 7px solid #000 !important;;
+border-right: 7px solid transparent !important;;
+border-left: 7px solid transparent !important;;
+content: "";
+}
+.navbar .nav .dropdown-toggle .caret {
+margin-top: 2px !important;
+}
 .radiusposts {
   list-style: none;
   margin: 10px 0 0 0;
