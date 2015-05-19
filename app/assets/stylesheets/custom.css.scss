@@ -165,7 +165,7 @@ aside {
 @media (max-width: 979px){
 .dropdown-menu{display:none !important;}
 .open>.dropdown-menu {display: block !important;}
-#custom-search-input{margin:0;}
+#custom-search-input{margin:10px !important;}
 }
 @import "bootstrap-responsive";
 
