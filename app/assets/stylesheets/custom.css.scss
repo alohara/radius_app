@@ -161,6 +161,7 @@ aside {
   @extend .control-group;
   @extend .error;
 }
+.btn-danger .glyphicon-search{width: 15px;	height: 14px;	background-image: url(../images/search.png);}
 @media (max-width: 979px){
 .dropdown-menu{display:none;}
 .open>.dropdown-menu {display: block;}
