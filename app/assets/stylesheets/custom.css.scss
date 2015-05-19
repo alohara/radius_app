@@ -103,7 +103,7 @@ background: #08c;
 }
 #custom-search-input {
         margin:0;
-        margin-top: 0px;
+       
         padding: 0;
     }
 #custom-search-input .search-query {
@@ -165,10 +165,7 @@ aside {
 }
 (max-width: 979px){
 .dropdown-menu{display:none !important;}
-.open>.dropdown-menu {
-display: block;
-}
-	
-}
+.open>.dropdown-menu {display: block;}
+#custom-search-input{margin:0;}
 @import "bootstrap-responsive";
 
