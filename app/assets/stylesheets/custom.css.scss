@@ -167,6 +167,7 @@ aside {
 .open>.dropdown-menu {display: block !important;}
 #custom-search-input{margin:10px !important;}
 .nav-collapse, .nav-collapse.collapse {overflow: visible!important;height: auto !important;}
+.nav-collapse .nav>li>a, .nav-collapse .dropdown-menu a{color:#DDD !important;}
 }
 @import "bootstrap-responsive";
 
