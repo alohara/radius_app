@@ -58,7 +58,8 @@ body {
 #menu {
    color: #ffffff;
    }
-
+.navbar .nav>li>.dropdown-menu:before{display:none !important;}
+.navbar .nav>li>.dropdown-menu:after{display:none !important;}
 /* radiusposts */
 
 .radiusposts {
