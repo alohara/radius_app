@@ -164,10 +164,10 @@ aside {
 .btn-danger .glyphicon-search{width: 15px;	height: 14px;	background-image: url(../images/search.png);}
 @media (max-width: 979px){
 .dropdown-menu{display:none !important;}
-.open>.dropdown-menu {display: block !important;}
+.open>.dropdown-menu {display: block !important; background-color:#FFF !important; border-radius:5px;}
 #custom-search-input{margin:10px !important;}
 .nav-collapse, .nav-collapse.collapse {overflow: visible!important;height: auto !important;}
-.nav-collapse .nav>li>a, .nav-collapse .dropdown-menu a{color:#DDD !important;}
+
 }
 @import "bootstrap-responsive";
 
