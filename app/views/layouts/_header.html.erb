@@ -14,12 +14,16 @@
 		<% if signed_in? %>
 		<li><div id="custom-search-input">
                             <div class="input-group col-md-12">
-                                <input type="text" class="  search-query form-control" placeholder="Search" />
+				<%= form_tag radiusposts_path,:method => 'get' do  %>
+				<%= select_tag 'search', options_from_collection_for_select(Zipcode.all, :zipcode, :description), include_blank: false %>
                                 <span class="input-group-btn">
                                     <button class="btn btn-danger" type="button">
+                                	<%= submit_tag "Zip Code", :name => nil, class: "btn btn-medium btn-primary" %>
+     					
                                         <span class=" glyphicon glyphicon-search"></span>
                                     </button>
                                 </span>
+                                <% end %>
                             </div>
                         </div></li>
                          <li class="dropdown">
