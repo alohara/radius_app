@@ -1,0 +1,37 @@
+<% provide(:title, 'Edit Interests') %>
+<div class="page-header" id:"banner">
+ <div class="row">
+   <div class="span4">
+     <div class="col-xs-6 col-sm-6 col-md-4">
+      <h5> Sidebar </h5>
+     </div>
+   </div>
+  <div class="span8">
+  <div class="col-xs-12 col-sm-6 col-md-8">
+<h1>Update Interests</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@interest) do |f| %>
+	  <%= render 'shared/error_messages', object: f.object %>
+
+	  <%= f.label :category %>
+	  <%= f.text_field :category %>
+	  
+	  <%= f.label :cat_descr %>
+	  <%= f.text_field :category_desc %>
+	  
+      <label class="checkbox"> <input type="checkbox"> 
+	    <%= f.check_box :active %>
+	    <%= f.label :active %>
+	  </label>
+	  
+      <label class="checkbox"> <input type="checkbox"> 
+	    <%= f.check_box :reserved %>
+	    <%= f.label :reserved %>
+	  </label>
+ 	  
+	  <%= f.submit "Update Interest", class: "btn btn-medium btn-primary" %>
+	<% end %>
+  </div>
+ </div>

@@ -1,0 +1,55 @@
+<% provide(:title, 'Zipcodes') %>
+<div class="row">
+  <aside class="span4">
+    <section>
+	  <%= form_for(@zipcode) do |f| %>
+	  <%= render 'shared/error_messages', object: f.object %>
+
+	  <%= f.label :zipcode %>
+	  <%= f.text_field :zipcode %>
+	  
+	  <%= f.label :description %>
+	  <%= f.text_field :description %>
+
+	  <%= f.label :city %>
+	  <%= f.text_field :city %>
+
+	  <%= f.label :subcity %>
+	  <%= f.text_field :subcity %>
+	  
+      <label class="checkbox"> <input type="checkbox"> 
+	    <%= f.check_box :active, checked: true %>
+	    <%= f.label :active %>
+	  </label>
+ 	  
+	  <%= f.submit "Add Zipcode", class: "btn btn-medium btn-primary" %>
+	<% end %>
+	</section>
+  </aside>
+  <div class="span8">
+    <div class="col-xs-12 col-sm-6 col-md-8">
+	  <p></p>
+	  
+      <span>
+  	    <%= form_tag zipcodes_path,:method => 'get' do  %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search", :name => nil %>
+        <% end %>
+	  </span>
+    <% if @zipcodes.any? %>
+        <h3> Zipcodes (<%= @zipcodes.count %>)</h3>
+          <% @zipcodes.each do |zip| %>
+          <li>
+            <%= zip.zipcode %>
+            <%= zip.description %>
+            <%= zip.city %>
+            <%= zip.subcity %>
+            <%= check_box_tag :active, 1, zip.active ? true : false %>
+            <%= link_to "edit", edit_zipcode_path(zip.id) %>
+            <%= link_to "delete", zip, method: :delete, confirm: "You sure dude?" %>
+	      </li>
+          <% end %>
+    <% end %>
+	</div>
+  </div>
+</div>
