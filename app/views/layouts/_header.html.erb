@@ -17,7 +17,7 @@
 				<%= select_tag 'search', options_from_collection_for_select(Zipcode.all, :zipcode, :description), include_blank: false %>
                                 <span class="input-group-btn">
                                     <button class="btn btn-danger" type="button">
-                                        <span class=" glyphicon glyphicon-search" ><%= image_submit_tag "images/search.png", :name => nil %></span>
+                                        <span class=" glyphicon glyphicon-search" ><%= image_submit_tag("images/search.png", :name => nil) %></span>
                                     </button>
                                 </span>
                                 <% end %>
