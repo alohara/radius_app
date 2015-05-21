@@ -2,6 +2,7 @@
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
     <%= f.text_area :content, placeholder: "Tell us..." %>
+	<div class="field">
 	<%= f.collection_select :interest_id, Interest.is_reserved(current_user), :id, :category, include_blank: true %>
     <% if current_user.admin? %>
 	  <label class="checkbox"> <input type="checkbox">
@@ -10,6 +11,7 @@
 	  </label>
 	<% end %>
 	<%= f.submit "Post", class: "btn btn-medium btn-primary" %>
+  </div>
   </div>
   
 <% end %>

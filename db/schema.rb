@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140316005727) do
+ActiveRecord::Schema.define(:version => 20150513031452) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -58,6 +58,24 @@ ActiveRecord::Schema.define(:version => 20140316005727) do
     t.boolean  "reserved",      :default => false
   end
 
+  create_table "pairs", :force => true do |t|
+    t.integer  "tournament_id"
+    t.string   "region"
+    t.integer  "round"
+    t.integer  "match"
+    t.integer  "team_one_seed"
+    t.integer  "team_one_id"
+    t.string   "team_one_name"
+    t.integer  "team_one_score"
+    t.integer  "team_two_seed"
+    t.integer  "team_two_id"
+    t.string   "team_two_name"
+    t.integer  "team_two_score"
+    t.string   "winner"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
   create_table "radiusposts", :force => true do |t|
     t.integer  "user_id"
     t.string   "content"
@@ -83,6 +101,29 @@ ActiveRecord::Schema.define(:version => 20140316005727) do
   add_index "radiusposts", ["latitude", "longitude"], :name => "index_radiusposts_on_latitude_and_longitude"
   add_index "radiusposts", ["user_id", "created_at"], :name => "index_radiusposts_on_user_id_and_created_at"
   add_index "radiusposts", ["zipcode"], :name => "index_radiusposts_on_zipcode"
+
+  create_table "teams", :force => true do |t|
+    t.string   "name"
+    t.string   "name_short"
+    t.boolean  "active",            :default => true
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.string   "division"
+    t.string   "conference"
+    t.string   "conference_detail"
+  end
+
+  create_table "tournaments", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "year"
+    t.integer  "seeds"
+    t.integer  "games"
+    t.integer  "rounds"
+    t.boolean  "active",      :default => true
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
 
   create_table "user_profiles", :force => true do |t|
     t.integer  "user_id"
@@ -114,7 +155,7 @@ ActiveRecord::Schema.define(:version => 20140316005727) do
     t.datetime "created_at",                                      :null => false
     t.datetime "updated_at",                                      :null => false
     t.boolean  "twitter_acct"
-    t.integer  "twitter_id"
+    t.integer  "twitter_id",      :limit => 8
     t.integer  "tweet_since_id",  :limit => 8
   end
 

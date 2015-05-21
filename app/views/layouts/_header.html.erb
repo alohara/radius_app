@@ -3,7 +3,7 @@
     <div class="navbar-inner">
       <div class="container">
         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <%= link_to "Radius::Explore the world around you", root_path, id: "logo" %>
+        <%= link_to "Hoopaholic - win or go home", root_path, id: "logo" %>
 	  <div class="nav-collapse">
         <ul class="nav pull-right" >
 		<% if signed_in? %>
@@ -16,7 +16,6 @@
                 <li><%= link_to "All Users", users_path %></li>
                 <li><%= link_to "Interests", interests_path %></li>
                 <li><%= link_to "Zipcodes", zipcodes_path %></li>
-				<li><%= link_to "Admin", admin_path %></li>
 			  <% end %>
 			  <li><%= link_to "Radius Profile", edit_user_path(current_user) %></li>
 			  <li><%= link_to "iSpy", '#' %></li>

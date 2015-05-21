@@ -9,6 +9,11 @@ body {
   padding-top: 70px;
   padding-bottom: 70px;
 }
+.affix-top {
+	top:60px;
+    position:fixed;
+}
+
 .sidebar-nav-fixed {
     float: left;
     padding: 9px 0;
