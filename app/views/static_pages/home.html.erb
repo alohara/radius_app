@@ -1,20 +1,10 @@
 <div class="page-header" id:"banner">
-<<<<<<< HEAD
-<div class="container">
-    <div class="row">
-        <div class="col-md-3">
-            <ul class="nav nav-stacked">
-                <% if signed_in? %>
-				<section>
-				  <%= render 'shared/user_info' %>
-				</section>
-				<section>
-				  <%= render 'shared/radiuspost_form' %>
-				</section>
-=======
 <div class="row">
   <aside class="span4">
     <div class="col-xs-6 col-sm-4 col-md-4">
+       <section>
+	     <%= render 'shared/radiuspost_search' %>
+	   </section>
        <% if signed_in? %>
        <section>
 	     <%= render 'shared/user_info' %>
@@ -22,18 +12,17 @@
 	   <section>
          <%= render 'shared/radiuspost_form' %>
 	   </section>
->>>>>>> a305cec8d56db0b225ad8cbf4934738eb2f644af
 
-				<% end %>
- 
-                </ul>
-                              
-            </div>
-            <!-- /sidebar -->
-        <div class="col-md-9">
- 	  <%= render 'shared/feed' %>
+  	  <% end %>
+     </div>
+   </aside>
+  <div class="span8">
+  <div class="col-xs-12 col-sm-6 col-md-8">
+    <h6> Lat <%= @lat %> and Lon <%= @lon %> ! </h6>
+      <a id="getLocation" href="#">Get Location</a>
+    <div id ='geoLocation'></div>
+	  <%= render 'shared/feed' %>
    </div>
    </div>
    </div>
-   </div>
- 
+</div>
