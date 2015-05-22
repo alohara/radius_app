@@ -1,0 +1,5 @@
+  	  <%= form_tag radiusposts_path,:method => 'get' do  %>
+        <%= select_tag 'search', options_from_collection_for_select(Zipcode.all, :zipcode, :description), include_blank: false %>
+        <%= submit_tag "Zip Code", :name => nil, class: "btn btn-medium btn-primary" %>
+     <% end %>
+

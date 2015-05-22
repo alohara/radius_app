@@ -1,0 +1,14 @@
+<% provide(:title, 'All Interests') %>
+<h1>All Interests</h1>
+
+<div>
+   <%= will_paginate %>
+       <%= @interests.each do |interest| %>
+       <li>
+         <%= interest.category %>
+         <%= interest.category_desc %>
+         <%= check_box_tag :active, 1, interest.active ? true : false %>
+	   </li>
+       <% end %>
+      <%= will_paginate %>
+</div>
