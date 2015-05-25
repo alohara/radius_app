@@ -58,24 +58,6 @@ ActiveRecord::Schema.define(:version => 20150513031452) do
     t.boolean  "reserved",      :default => false
   end
 
-  create_table "pairs", :force => true do |t|
-    t.integer  "tournament_id"
-    t.string   "region"
-    t.integer  "round"
-    t.integer  "match"
-    t.integer  "team_one_seed"
-    t.integer  "team_one_id"
-    t.string   "team_one_name"
-    t.integer  "team_one_score"
-    t.integer  "team_two_seed"
-    t.integer  "team_two_id"
-    t.string   "team_two_name"
-    t.integer  "team_two_score"
-    t.string   "winner"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-  end
-
   create_table "radiusposts", :force => true do |t|
     t.integer  "user_id"
     t.string   "content"
@@ -111,18 +93,6 @@ ActiveRecord::Schema.define(:version => 20150513031452) do
     t.string   "division"
     t.string   "conference"
     t.string   "conference_detail"
-  end
-
-  create_table "tournaments", :force => true do |t|
-    t.string   "name"
-    t.string   "description"
-    t.integer  "year"
-    t.integer  "seeds"
-    t.integer  "games"
-    t.integer  "rounds"
-    t.boolean  "active",      :default => true
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
   end
 
   create_table "user_profiles", :force => true do |t|
