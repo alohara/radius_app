@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+<title>Radius - Explore the world around you</title>
+<link href="css/style.css" media="screen" rel="stylesheet" type="text/css" />
+<meta property="og:image" content="image/favicon.ico"/>
+<link rel="image_src" href="image/favicon.ico" />
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1, user-scalable=0" />
+<link rel="shortcut icon" href="image/favicon.ico"/>
+<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Noto+Sans:700|Roboto+Slab:100,300,400,700'>
+
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+
+<link href="css/main.css" media="screen" rel="stylesheet" type="text/css" />
+<script src="js/script.js" type="text/javascript"></script>
+<script src="js/jsfunctions.js" type="text/javascript"></script>
+</head>
+
+<body class="pagesindex unknown">
+<div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+  <div id="listly-smartbar" class="hide"> </div>
+  <div class="navbar-inner">
+    <div class="container">
+      <div class="">
+        <button type="button" id="main_menu" class="navbar-toggle btn btn-default" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="glyphicon glyphicon-cog"></span> </button>
+        <button type="button" id="post_menu" data-toggle="collapse" data-target="#bs-example-navbar-collapse-4" class="navbar-toggle btn btn-default">+</button>
+        <button type="button" id="filter_menu" data-toggle="collapse" data-target="#bs-example-navbar-collapse-3" class="navbar-toggle btn btn-default">Filter</button>
+        <button type="button" id="searhc_menu" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" class="navbar-toggle btn btn-default"><i class="ly-icon-search"></i></button>
+        <a class="navbar-brand" href="/"><img alt="Listly Logo" src="images/listly-logo.png" /></a> </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+        <form class="navbar-form navbar-left search-form" action="/search"  role="search">
+          <div class="input-group search_input">
+            <input type="text" class="form-control" name="q" placeholder="Find a Redius on...">
+            <span class="input-group-btn">
+            <button type="submit" class="btn btn-default"><i class="ly-icon-search"></i></button>
+            </span> </div>
+        </form>
+      </div>
+      <div class="collapse navbar-collapse navbar-col_right" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <!----------------------------------------------Before Login Part Start------------------------------------------------------------->
+          <li style="display:none;">
+            <div class="form-group top_mar">
+              <input type="text" class="form-control input-sm" placeholder="Radius Name...">
+            </div>
+          </li>
+          <li style="display:none;">
+            <div class="form-group top_mar">
+              <input type="password" class="form-control input-sm" placeholder="Radius Password">
+            </div>
+          </li>
+          <li style="display:none;">
+            <button id="header_signin" class="btn btn-xs navbar-btn btn-primary" type="button">SIGN IN</button>
+          </li>
+          <li style="display:none;"> <a id="header_signup" href="sign_up.html" class="btn btn-xs navbar-btn btn-primary" type="button">SIGN UP</a> </li>
+          <!----------------------------------------------Before Login Part End------------------------------------------------------------->
+          
+          <li class="dropdown setting" > <a href="#" id="setting_mobile" class="dropdown-toggle" data-toggle="dropdown">Setting <b class="caret"></b></a>
+            <ul class="dropdown-menu setting">
+              <li><a href="/users">All Users</a></li>
+              <li><a href="/interests">Interests</a></li>
+              <li><a href="/zipcodes">Zipcodes</a></li>
+              <li><a href="/admin">Admin</a></li>
+              <li><a href="/users/1/edit">Radius Profile</a></li>
+              <li><a href="#">iSpy</a></li>
+              <li class="divider"></li>
+              <li><a href="/signout" data-method="delete" rel="nofollow">Sign out</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="collapse navbar-collapse navbar-col_right" id="bs-example-navbar-collapse-4">
+        <ul class="nav navbar-nav navbar-left">
+          <li class="dropdown post"><a href="#" id="post_mobile" class="dropdown-toggle" data-toggle="dropdown">Post <b class="caret"></b></a>
+            <ul class="dropdown-menu ropdown more_width">
+              <form accept-charset="UTF-8" action="/radiusposts" class="new_radiuspost" id="new_radiuspost" method="post">
+                <div style="margin:0;padding:0;display:inline">
+                  <input name="utf8" type="hidden" value="✓">
+                  <input name="authenticity_token" type="hidden" value="dw5OccDT2kizOHZReqbHkcrSXcamoPi+HcEULUKRu4E=">
+                </div>
+                <div class="field">
+                  <div class="form-group">
+                    <textarea cols="30" rows="5" id="radiuspost_content" name="radiuspost[content]" class="form-control input-lg" placeholder="Tell us..."></textarea>
+                  </div>
+                  <div class="form-group">
+                    <select id="radiuspost_interest_id" class="form-control input-md"  name="radiuspost[interest_id]">
+                      <option value="">Select Post</option>
+                      <option value="1">PSA</option>
+                      <option value="2">Random Thoughts</option>
+                      <option value="3">Foodies</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label >
+                    <input name="radiuspost[visible]" type="hidden" value="0">
+                    <input checked="checked" class="check_nomar" id="radiuspost_visible" name="radiuspost[visible]" type="checkbox" value="1">
+                    <label for="radiuspost_visible">Visible</label>
+                    </label>
+                    <input class="btn btn-medium btn-primary" name="commit" type="submit" value="Post">
+                  </div>
+                </div>
+              </form>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="collapse navbar-collapse navbar-col_right" id="bs-example-navbar-collapse-3">
+        <ul class="nav navbar-nav navbar-left">
+          <li class="dropdown filter"> <a href="#" id="filter_mobile" class="dropdown-toggle" data-toggle="dropdown">Filter <b class="caret"></b></a>
+            <ul class="dropdown-menu ropdown filter">
+              <li><a href="/users">Demo Filter</a></li>
+              <li><a href="/users">Demo Filter</a></li>
+              <li><a href="/users">Demo Filter</a></li>
+              <li><a href="/users">Demo Filter</a></li>
+              <li><a href="/users">Demo Filter</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="hero-cta">
+  <div class="hero-tagline ">
+    <p class="listly-name"> Radius.</p>
+    <h1>Explore the world around you</h1>
+    <h2>Share your interests. Engage your audience.  Collaborate with friends.
+      Make beautiful and fun listicles. The simplest way to create, curate and share.</h2>
+    <button class="btn btn-success btn-lg about-signin-banner"> Get Started </button>
+  </div>
+</section>
+<div id="aboutus-page">
+  <section class="testimonials">
+    <div class="testimonial-row container-fluid section-separator">
+      <div class="row-fluid">
+        <p class="about-tagline">They are already creating great Radius...</p>
+        <div class="col-md-12">
+          <div class="clearfix testimonial-item"> <img alt="Joepulizzi" class="testimonial-avatar" src="images/joepulizzi.jpg" />
+            <h5 class="testimonial-user main_title">RANDOM THOUGHTS LA 90024</h5>
+            <h5 class="testimonial-user main_title">TEST</h5>
+            <p class="testimonial-blurb"><a href="#">CHOOCH</a> POSTED 1 DAY AGO. 34.0535911498908 -118.438270194566 <a href="#">DELETE</a></p>
+            <div class="social-media"> <a href="#" target="_blank" title="#"> <i class="ly-icon-twitter-square"></i> </a> <a href="/#" target="_blank" title="#"> <i class="ly-icon-facebook-square"></i> </a> <a href="#" target="_blank" title="#"> <i class="ly-icon-google-plus-square"></i> </a> </div>
+          </div>
+          <div class="clearfix testimonial-item "> <img alt="Chrisdancy" class="testimonial-avatar" src="images/chrisdancy.jpg" />
+            <h5 class="testimonial-user main_title">PLANO 75074</h5>
+            <h5 class="testimonial-user main_title">PSA</h5>
+            <h5 class="testimonial-user">TEXAKOMA EXPLORATION & PRODUCTION JUST HAD PUBLISHED FORM D BECAUSE OF $11.50 MILLION ...: THE FILLER'S ADDRES...<a href="#">HTTP://T.CO/QSSNBTAQIF</a></h5>
+            <p class="testimonial-blurb"> <a href="#">PLANO_TX</a> POSTED 2 DAYS AGO. 33.02079 -96.699249 </p>
+            <div class="social-media"> <a href="#" target="_blank" title="#"> <i class="ly-icon-twitter-square"></i> </a> <a href="/#" target="_blank" title="#"> <i class="ly-icon-facebook-square"></i> </a> <a href="#" target="_blank" title="#"> <i class="ly-icon-google-plus-square"></i> </a> </div>
+          </div>
+          <div class="clearfix testimonial-item "> <img alt="Chrisdancy" class="testimonial-avatar" src="images/chrisdancy.jpg" />
+            <h5 class="testimonial-user main_title">PLANO 75074</h5>
+            <h5 class="testimonial-user main_title">PSA</h5>
+            <h5 class="testimonial-user">TEXAS WR LIKES WHAT HE'S HEARING FROM UW: WASHINGTON IS DEFINITELY IN THE MARKET FOR SOME EXPLOSIVE WIDEOUTS I... <a href="#">HTTP://T.CO/WOCDXNTM1O</a></h5>
+            <p class="testimonial-blurb"><a href="#">PLANO_TX</a> POSTED 2 DAYS AGO. 33.02079 -96.699249 </p>
+            <div class="social-media"> <a href="#" target="_blank" title="#"> <i class="ly-icon-twitter-square"></i> </a> <a href="/#" target="_blank" title="#"> <i class="ly-icon-facebook-square"></i> </a> <a href="#" target="_blank" title="#"> <i class="ly-icon-google-plus-square"></i> </a> </div>
+          </div>
+          <div class="clearfix testimonial-item "> <img alt="Chrisdancy" class="testimonial-avatar" src="images/chrisdancy.jpg" />
+            <h5 class="testimonial-user main_title">PLANO 75074</h5>
+            <h5 class="testimonial-user main_title">PSA</h5>
+            <h5 class="testimonial-user">TEXAS WR LIKES WHAT HE'S HEARING FROM UW: WASHINGTON IS DEFINITELY IN THE MARKET FOR SOME EXPLOSIVE WIDEOUTS I... <a href="#">HTTP://T.CO/WOCDXNTM1O</a></h5>
+            <p class="testimonial-blurb"><a href="#">PLANO_TX</a> POSTED 2 DAYS AGO. 33.02079 -96.699249 </p>
+            <div class="social-media"> <a href="#" target="_blank" title="#"> <i class="ly-icon-twitter-square"></i> </a> <a href="/#" target="_blank" title="#"> <i class="ly-icon-facebook-square"></i> </a> <a href="#" target="_blank" title="#"> <i class="ly-icon-google-plus-square"></i> </a> </div>
+          </div>
+          <div class="clearfix testimonial-item "> <img alt="Chrisdancy" class="testimonial-avatar" src="images/chrisdancy.jpg" />
+            <h5 class="testimonial-user main_title">PLANO 75074</h5>
+            <h5 class="testimonial-user main_title">PSA</h5>
+            <h5 class="testimonial-user">TEXAS WR LIKES WHAT HE'S HEARING FROM UW: WASHINGTON IS DEFINITELY IN THE MARKET FOR SOME EXPLOSIVE WIDEOUTS I... <a href="#">HTTP://T.CO/WOCDXNTM1O</a></h5>
+            <p class="testimonial-blurb"><a href="#">PLANO_TX</a> POSTED 2 DAYS AGO. 33.02079 -96.699249 </p>
+            <div class="social-media"> <a href="#" target="_blank" title="#"> <i class="ly-icon-twitter-square"></i> </a> <a href="/#" target="_blank" title="#"> <i class="ly-icon-facebook-square"></i> </a> <a href="#" target="_blank" title="#"> <i class="ly-icon-google-plus-square"></i> </a> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<section class="connect-withus">
+  <div class="container">
+    <div class="col-md-3 col-sm-3 col-xs-3 footer-links"> <a href="#">Home</a><br/>
+    </div>
+    <div class="col-md-3 col-sm-3 col-xs-3 footer-links"> <a href="#">Share</a><br/>
+    </div>
+    <div class="col-md-3 col-sm-3 col-xs-3 footer-links"> <a href="#">About</a><br/>
+    </div>
+    <div class="col-md-3 col-sm-3 col-xs-3 footer-links" style="border:none"> <a href="#">Help</a><br/>
+    </div>
+  </div>
+</section>
+<div id="fb-root"></div>
+</body>
+</html>
