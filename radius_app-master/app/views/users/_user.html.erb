@@ -1,7 +1,0 @@
-<li>
-  <%= link_to user.radius_name, user %>
-  <% if current_user.admin? && !current_user?(user) %>
-    <%= link_to "delete", user, method: :delete, confirm: "You sure homey?" %>
-    <%= link_to "edit", edit_user_path(user) %>
-  <% end %>
-</li>
