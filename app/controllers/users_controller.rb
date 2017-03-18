@@ -27,10 +27,10 @@ class UsersController < ApplicationController
 	@tweeters = User.tweeters.all
 	unless @tweeters.nil?
     client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = "WC4fVSrOM5lXzGFfwDgSnA"
-      config.consumer_secret     = "fM90UwlUokm2t1yBWDmJAFqBX2fqVztbfLVT2ZjcM"
-      config.access_token        = "14070254-H1WduuxRbjxuLdK9ILNmu7VsnAfLgELLAzT5RD7wX"
-      config.access_token_secret = "gDrLp9JuUOKtZoUgGIdv8zG2QAj1AwQuACTReDkOH9cHZ"
+      config.consumer_key        = "REMOVED"
+      config.consumer_secret     = "REMOVED"
+      config.access_token        = "REMOVED"
+      config.access_token_secret = "REMOVED"
     end
 	@tweeters.each do |element|
       @tweeter_profile = UserProfile.find_by_id(element.id)
